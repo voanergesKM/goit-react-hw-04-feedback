@@ -1,7 +1,5 @@
 import { Component } from 'react';
 
-import { Statistics } from './Statistic/Statistics';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
 
 export class App extends Component {
@@ -31,7 +29,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback(this.state);
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
-
+    const message = 'There is no feedback';
     return (
       <Section
         title="Please leave feedback"
@@ -41,6 +39,7 @@ export class App extends Component {
         bad={bad}
         total={totalFeedback}
         positivePercentage={positiveFeedbackPercentage}
+        message={message}
       />
     );
   }
