@@ -6,6 +6,9 @@ export const Title = styled.h3`
 `;
 
 export const Description = styled.p`
-  margin-bottom: 10px;
   font-size: 18px;
+
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
 `;
