@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyledSection } from './Section.styled';
 import { Title } from 'components/Title/Title';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
@@ -32,13 +33,15 @@ export class Section extends Component {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback(this.state);
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
-    const title = 'Please leave feedback';
     const message = 'There is no feedback';
 
     return (
       <StyledSection>
-        <Title title={title} />
-        <FeedbackOptions onLeaveFeedback={this.onUpdateStats} />
+        <Title title={this.props.title} />
+        <FeedbackOptions
+          onLeaveFeedback={this.onUpdateStats}
+          options={['good', 'neutral', 'bad']}
+        />
         {totalFeedback > 0 ? (
           <Statistics
             good={good}
@@ -54,3 +57,7 @@ export class Section extends Component {
     );
   }
 }
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+};
