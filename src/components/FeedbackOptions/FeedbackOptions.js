@@ -1,9 +1,10 @@
+import { Box } from 'components/Box';
 import PropTypes from 'prop-types';
-import { Button, Container } from './FeedbackOptions.styled';
+import { Button } from './FeedbackOptions.styled';
 
 export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
-    <Container>
+    <Box display="flex" mb="32px" justifyContent="space-between" width="250px">
       {options.map(option => {
         const label = option.slice(0, 1).toUpperCase() + option.slice(1);
         return (
@@ -12,7 +13,7 @@ export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
           </Button>
         );
       })}
-    </Container>
+    </Box>
   );
 };
 
